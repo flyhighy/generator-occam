@@ -1,4 +1,5 @@
 module.exports = function (grunt) {
+    require('time-grunt')(grunt);
     var task = grunt.task;
     // ======================= 配置每个任务 ==========================
 

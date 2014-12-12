@@ -92,7 +92,3 @@ module.exports = yeoman.generators.Base.extend({
         }
     }
 });
-
-function blue (str) {
-    return consoleColor(str, 34);
-}
