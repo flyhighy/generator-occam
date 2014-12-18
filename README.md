@@ -59,3 +59,9 @@ tnpm install
 ```
 
 enjoy yourself
+
+### change log
+
+* version 0.1.3
+
+    * 修改npm为tnpm

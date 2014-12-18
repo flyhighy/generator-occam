@@ -1,7 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
 var yosay = require('yosay');
+var exec = require('exec');
 
 module.exports = yeoman.generators.Base.extend({
     initializing : function () {
@@ -11,7 +11,6 @@ module.exports = yeoman.generators.Base.extend({
     prompting : function () {
         var done = this.async();
 
-        // Have Yeoman greet the user.
         this.log(yosay(
             '欢迎使用occam创建项目。'
         ));
@@ -19,7 +18,7 @@ module.exports = yeoman.generators.Base.extend({
         var prompts = [
             {
                 name    : 'projectName',
-                message : '请输入项目名',
+                message : '请输入项目名（请使用英文）',
                 default : 'demo-project',
                 warning : ''
             },
@@ -31,20 +30,20 @@ module.exports = yeoman.generators.Base.extend({
             },
             {
                 name    : 'author',
-                message : 'Author Name(花名):',
+                message : 'Author Name(请使用英文花名):',
                 default : '',
                 warning : ''
             },
             {
                 name    : 'email',
-                message : 'Author Email:',
+                message : 'Author Email(请使用英文邮箱地址):',
                 default : '',
                 warning : ''
             },
             {
                 name    : 'npm_install',
                 message : '是否自动安装node_modules',
-                default : 'N',
+                default : 'Y/n',
                 warning : ''
             }
         ];
@@ -78,13 +77,14 @@ module.exports = yeoman.generators.Base.extend({
         this.npm_install = (/^y/i).test(this.npm_install);
 
         if (this.npm_install) {
-            this.npmInstall('', {}, function (err) {
+            console.log('\n' + '正在安装项目依赖的package\n');
+            exec(['npm', 'install'], function(err, out, code) {
 
                 if (err) {
-                    return console.log('\n' + 'please run "npm install"\n');
+                    return console.log('\n' + '安装项目依赖的package失败，请执行 "npm install" 或 "tnpm install" 命令，完成安装。\n');
                 }
 
-                console.log('\n\nnpm was installed successful. \n\n');
+                console.log('\n\n安装项目依赖的package成功，enjoy yourself \n\n');
             });
         } else {
             console.log('\n\nplease run "npm install" or "tnpm install" before grunt\n');
