@@ -61,13 +61,14 @@ module.exports = yeoman.generators.Base.extend({
 
     writing : {
         app : function () {
-            this.template('README.md');
-            this.template('package.json');
+            this.template('.gitignore');
             this.template('bower.json');
-            this.copy('Gruntfile.js');
+            this.template('package.json');
+            this.template('README.md');
+            this.copy('gulpfile.js');
 
+            this.mkdir('demo');
             this.mkdir('src');
-            this.mkdir('src/pages');
             this.mkdir('src/mods');
             this.mkdir('src/widgets');
         }
