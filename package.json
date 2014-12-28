@@ -1,6 +1,6 @@
 {
     "name"             : "generator-occam",
-    "version"          : "0.1.6",
+    "version"          : "0.1.7",
     "description"      : "阿里旅行杭州技术团队-前端组项目脚手架",
     "license"          : "MIT",
     "main"             : "app/index.js",

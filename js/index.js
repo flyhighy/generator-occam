@@ -44,8 +44,6 @@ module.exports = yeoman.generators.Base.extend({
 
     writing : {
         app : function () {
-            this.mkdir(this.modName);
-
             this.template('index.js.tpl', this.fileName + ".js");
         }
     },

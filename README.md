@@ -89,6 +89,9 @@ enjoy yourself
 
 ### change log
 
+* version 0.1.7
+    * bugfix
+
 * version 0.1.6
     * 创建yo occam:mod
     * 创建yo occam:js
